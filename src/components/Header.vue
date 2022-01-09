@@ -1,12 +1,23 @@
 <template>
     <header>
+
+        <!-- 头像 -->
         <div class="avatar">
-            <img src="../assets/avatar.jpg" alt="头像">
+           <img src="../assets/avatar.jpg" alt="avatar">
         </div>
+
+        <!-- 导航栏 -->
         <ul class="nav">
-            <li @click="toggleType" data-type="photo">照片</li>
-            <li @click="toggleType" data-type="video">视频</li>
+            <li>照片</li>
+            <li>视频</li>
         </ul>
+
+        <!-- 音乐开关 -->
+        <svg @click="toggleMusic" class="icon" aria-hidden="true">
+            <use v-if="playMusic" xlink:href="#icon-musicfill"></use>
+            <use v-else xlink:href="#icon-musicforbidfill"></use>
+        </svg>
+
     </header>
 </template>
 
@@ -15,14 +26,12 @@ export default {
     name: 'Header',
     data() {
         return {
-
+            playMusic: false
         }
     },
     methods: {
-        toggleType(e) {
-            const { type } = e.target.dataset
-            console.log(type)
-            this.$rooter.bus.$emit('toggle', '111')
+        toggleMusic() {
+            this.playMusic = !this.playMusic
         }
     }
 }
@@ -30,37 +39,44 @@ export default {
 
 <style scoped>
 header {
-    border: 1px solid red;
+    font-size: 20px;
     display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
 }
 
+/* 头像 */
 .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 .avatar > img {
-    width: 100px;
-    margin: -16px 0 0 -6px;
+    width: 100%;
 }
 
+/* 导航栏 */
 .nav {
     display: flex;
-    margin-left: 40px;
+    align-items: center;
+    margin-left: 20px;
 }
 .nav > li {
-    width: 100px;
-    background-color: #ccc;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px;
+    border: 1px solid pink;
+    color: #ddd;
+    padding: 10px 15px;
 }
-.nav > li:hover {
-    background-color: #aaa;
+.nav > li.active {
+    color: #fff;
+}
+
+/* 音乐开关 */
+.icon {
+    font-size: 40px;
+    position: absolute;
+    right: 10px;
 }
 </style>

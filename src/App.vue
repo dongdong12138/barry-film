@@ -1,23 +1,19 @@
 <template>
   <div id="app">
     <Header />
-    <Main />
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import Header from './components/Header.vue'
-import Main from './components/Main.vue'
 
 export default {
   name: 'App',
   data() {
     return {
-      bus: new Vue()
     }
   },
-  components: { Header, Main }
+  components: { Header }
 }
 </script>
 
@@ -25,11 +21,19 @@ export default {
 * { margin: 0; padding: 0; box-sizing: border-box; }
 ul, ol, li { list-style: none; }
 
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 1000px;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background: url("./assets/photos/IMG_9546.jpg") no-repeat center top;
+  background-size: 100% 100%;
+  overflow: hidden;
+  border: 1px solid red;
 }
 </style>
