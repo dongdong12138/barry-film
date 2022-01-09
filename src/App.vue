@@ -2,20 +2,36 @@
   <div id="app">
     <Header />
     <Main />
+    <Popup v-if="isPopup" :src="src" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
+import Popup from './components/Popup.vue'
 
 export default {
   name: 'App',
   data() {
     return {
+      src: '',
+      isPopup: false
     }
   },
-  components: { Header, Main }
+  mounted() {
+    // this.setPopup(true, '1111111')
+  },
+  methods: {
+    /**
+     * 设置弹窗显示隐藏
+     */
+    setPopup(state, src='') {
+      this.src = src
+      this.isPopup = state
+    }
+  },
+  components: { Header, Main, Popup }
 }
 </script>
 

@@ -2,8 +2,8 @@
     <main>
 
         <!-- 图片 -->
-        <section class="photo">
-            <img v-for="(item, index) in imgList" :key="index" :src="item.img" alt="">
+        <section @click="showBigImg" class="photo">
+            <img v-for="(item, index) in imgList" :key="index" :data-value="item.img" :src="item.img" alt="">
         </section>
 
     </main>
@@ -20,6 +20,13 @@ export default {
     created() {
         for (let i = 1; i <= 100; i ++) {
             this.imgList.push({ img: require(`../assets/photos/${i}.jpg`) })
+        }
+    },
+    methods: {
+        showBigImg(e) {
+            const { value } = e.target.dataset
+            console.log(value)
+            this.$parent.setPopup(true, value)
         }
     }
 }
