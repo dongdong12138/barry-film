@@ -18,6 +18,10 @@
             <use v-else xlink:href="#icon-musicforbidfill"></use>
         </svg>
 
+        <audio ref="audio" src="../assets/music/岑宁儿 - 追光者.mp3">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+
     </header>
 </template>
 
@@ -32,6 +36,11 @@ export default {
     methods: {
         toggleMusic() {
             this.playMusic = !this.playMusic
+            if (this.playMusic) {
+                this.$refs.audio.play()
+            } else {
+                this.$refs.audio.pause()
+            }
         }
     }
 }

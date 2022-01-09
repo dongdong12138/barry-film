@@ -20,7 +20,6 @@ export default {
     }
   },
   mounted() {
-    // this.setPopup(true, '1111111')
   },
   methods: {
     /**
