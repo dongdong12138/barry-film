@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header :type="type" />
+    <Main :type="type" />
     <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
   </div>
 </template>
@@ -16,12 +16,19 @@ export default {
   data() {
     return {
       src: '',
+      type: 'photo',
       isPopup: false
     }
   },
   mounted() {
   },
   methods: {
+    /**
+     * 设置当前显示图片或视频
+     */
+    setType(type) {
+      this.type = type
+    },
     /**
      * 设置弹窗显示隐藏
      */
@@ -37,7 +44,7 @@ export default {
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 ul, ol, li { list-style: none; }
-img { max-width: 100%; }
+img, video { max-width: 100%; }
 
 .icon {
     width: 1em; height: 1em;

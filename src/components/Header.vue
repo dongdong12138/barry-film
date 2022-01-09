@@ -7,9 +7,9 @@
         </div>
 
         <!-- 导航栏 -->
-        <ul class="nav">
-            <li>照片</li>
-            <li>视频</li>
+        <ul @click="selectType" class="nav">
+            <li data-type="photo" :class="{active: type === 'photo'}">照片</li>
+            <li data-type="video" :class="{active: type === 'video'}">视频</li>
         </ul>
 
         <!-- 音乐开关 -->
@@ -33,7 +33,12 @@ export default {
             playMusic: false
         }
     },
+    props: ['type'],
     methods: {
+        selectType(e) {
+            const { type } = e.target.dataset
+            this.$parent.setType(type)
+        },
         toggleMusic() {
             this.playMusic = !this.playMusic
             if (this.playMusic) {
@@ -74,12 +79,13 @@ header {
     margin-left: 20px;
 }
 .nav > li {
-    border: 1px solid pink;
-    color: #ddd;
+    color: #ccc;
     padding: 10px 15px;
+    margin: 0 10px;
 }
 .nav > li.active {
     color: #fff;
+    border-bottom: 2px solid #000;
 }
 
 /* 音乐开关 */
