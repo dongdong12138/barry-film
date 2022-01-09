@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <Main />
-    <Popup v-if="isPopup" :src="src" />
+    <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
   </div>
 </template>
 

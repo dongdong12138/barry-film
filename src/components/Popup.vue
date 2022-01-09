@@ -1,5 +1,5 @@
 <template>
-    <section @animationend="animationend" @click.self="closePop" :class="{popupShowAni: isShow, popupHideAni: !isShow}">
+    <section @animationend="animationend" @click.self="closePop" :class="{popupShowAni: isPopup, popupHideAni: !isPopup}">
         <img :src="src" alt="">
     </section>
 </template>
@@ -7,21 +7,13 @@
 <script>
 export default {
     name: 'Popup',
-    data() {
-        return {
-            isShow: false
-        }
-    },
-    props: ['src'],
-    mounted() {
-        this.isShow = true
-    },
+    props: ['src', 'isPopup'],
     methods: {
         closePop() {
-            this.isShow = false
+            this.isPopup = false
         },
         animationend() {
-            !this.isShow && this.$parent.setPopup(false)
+            !this.isPopup && this.$parent.setPopup(false)
         }
     }
 }
