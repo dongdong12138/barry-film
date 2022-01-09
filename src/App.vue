@@ -52,6 +52,5 @@ img { max-width: 100%; }
   background: url("./assets/photos/93.jpg") no-repeat center top;
   background-size: 100% 100%;
   overflow: hidden;
-  border: 1px solid red;
 }
 </style>
