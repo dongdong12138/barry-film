@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
 .loading {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: #323943;
     display: flex;

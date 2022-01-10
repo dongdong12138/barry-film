@@ -25,7 +25,7 @@ export default {
         }
     },
     mounted() {
-        const timer = setInterval(() => {
+        setInterval(() => {
             const random = parseInt(Math.random() * (this.letterArr.length+1))
             this.letter = this.letterArr[random]
         }, 5000)

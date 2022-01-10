@@ -11,7 +11,7 @@
         <!-- 视频 -->
         <section v-show="type === 'video'" @touchstart="touchstart" @touchend="touchend" :style="styleObj" class="video">
             <div v-for="(item, index) in videoList" :key="index">
-                <video :ref="`video${index}`" controls loop="true">
+                <video :ref="`video${index}`" controls preload="metadata" loop="true">
                     <source :src="item.video" type="video/mp4">
                     Sorry, your browser doesn't support embedded videos.
                 </video>

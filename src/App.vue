@@ -4,7 +4,7 @@
     <Main :imgList="imgList" :videoList="videoList" :type="type" />
     <Letters />
     <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
-    <!-- <Loading v-if="isLoading" :imgList="imgList" /> -->
+    <Loading v-if="isLoading" :imgList="imgList" />
   </div>
 </template>
 
@@ -84,5 +84,11 @@ img, video { max-width: 100%; }
   background-size: 100% 100%;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   overflow: hidden;
+}
+@media screen and (min-width: 500px) {
+  #app {
+    width: 500px;
+    margin: 0 auto;
+  }
 }
 </style>
