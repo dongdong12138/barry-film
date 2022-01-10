@@ -39,6 +39,9 @@ export default {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    background-image: linear-gradient(to right, orange, purple);
+    background-clip: text;
+    color: transparent;
     margin-top: 10px;
 }
 </style>

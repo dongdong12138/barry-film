@@ -13,14 +13,17 @@
         </ul>
 
         <!-- 音乐开关 -->
-        <svg @click="toggleMusic" class="icon" aria-hidden="true">
+        <svg @click="toggleMusic" v-if="type === 'photo'" class="icon" aria-hidden="true">
             <use v-if="playMusic" xlink:href="#icon-musicfill"></use>
             <use v-else xlink:href="#icon-musicforbidfill"></use>
         </svg>
-
-        <audio ref="audio" :src="`${baseUrl}/music/岑宁儿 - 追光者.mp3`">
+        <audio v-if="type === 'photo'" ref="audio" :src="`${baseUrl}/music/岑宁儿 - 追光者.mp3`">
             Your browser does not support the <code>audio</code> element.
         </audio>
+
+        <svg v-if="type === 'video'" class="icon" aria-hidden="true">
+            <use xlink:href="#icon-happy"></use>
+        </svg>
 
     </header>
 </template>
