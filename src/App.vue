@@ -2,8 +2,9 @@
   <div id="app">
     <Header :baseUrl="baseUrl" :type="type" />
     <Main :imgList="imgList" :videoList="videoList" :type="type" />
+    <Letters />
     <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
-    <Loading v-if="isLoading" :imgList="imgList" />
+    <!-- <Loading v-if="isLoading" :imgList="imgList" /> -->
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Header from './components/Header.vue'
 import Main from './components/Main.vue'
 import Popup from './components/Popup.vue'
 import Loading from './components/Loading.vue'
+import Letters from './components/Letters.vue'
 
 export default {
   name: 'App',
@@ -59,7 +61,7 @@ export default {
       this.isLoading = state
     }
   },
-  components: { Header, Main, Popup, Loading }
+  components: { Header, Main, Popup, Loading, Letters }
 }
 </script>
 
@@ -69,10 +71,10 @@ ul, ol, li { list-style: none; }
 img, video { max-width: 100%; }
 
 .icon {
-    width: 1em; height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 #app {
@@ -80,6 +82,7 @@ img, video { max-width: 100%; }
   height: 100vh;
   background: url("//morefun-active.oss-cn-beijing.aliyuncs.com/bao_daily/barry-film/photos/93.jpg") no-repeat center top;
   background-size: 100% 100%;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   overflow: hidden;
 }
 </style>

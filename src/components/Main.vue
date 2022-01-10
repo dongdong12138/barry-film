@@ -107,4 +107,7 @@ main {
     display: flex;
     align-items: center;
 }
+.video > div > video {
+    width: 100%;
+}
 </style>
