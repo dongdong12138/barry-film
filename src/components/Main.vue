@@ -1,7 +1,5 @@
 <template>
-    <!-- <main :style="mainStyle"> -->
     <main>
-
 
         <!-- 图片 -->
         <section v-show="type === 'photo'" @click="showBigImg" class="photo">
@@ -34,25 +32,21 @@ export default {
             currentVideo: 0
         }
     },
-    props: ['type'],
+    props: ['baseUrl', 'type'],
     computed: {
-        mainStyle() {
-            return { 'overflow-y': this.type === 'photo' ? 'auto' : 'hidden' }
-        },
         styleObj() {
             return { transform: `translateY(calc(-${this.currentVideo} * 100% / 10))` }
         }
     },
     created() {
         for (let i = 1; i <= 100; i ++) {
-            this.imgList.push({ img: require(`../assets/photos/${i}.jpg`) })
+            // this.imgList.push({ img: require(`${this.baseUrl}/photos/${i}.jpg`) })
+            this.imgList.push({ img: `${this.baseUrl}/photos/${i}.jpg` })
         }
         for (let i = 1; i <= 10; i ++) {
-            this.videoList.push({ video: require(`../assets/videos/${i}.mp4`) })
+            // this.videoList.push({ video: require(`${this.baseUrl}/videos/${i}.mp4`) })
+            this.videoList.push({ video: `${this.baseUrl}/videos/${i}.mp4` })
         }
-    },
-    mounted() {
-        this.$refs[`video${this.currentVideo}`][0].play()
     },
     methods: {
         showBigImg(e) {
@@ -73,7 +67,6 @@ export default {
                 if (this.currentVideo <= 0) return
                 this.currentVideo -= 1
             }
-            console.log('this.$refs:', this.$refs.video0)
             this.stopPlayAllVideo()    
             this.$refs[`video${this.currentVideo}`][0].play()
         },
@@ -86,7 +79,6 @@ export default {
     },
     watch: {
         type(value) {
-            console.log(value)
             if (value === 'photo') this.stopPlayAllVideo()
             if (value === 'video') this.$refs[`video${this.currentVideo}`][0].play()
         }
@@ -122,7 +114,7 @@ main {
 }
 .video > div {
     height: calc(100% / 10);
-    background-color: #000;
+    background-color: #111;
     overflow: hidden;
     display: flex;
     align-items: center;

@@ -18,7 +18,7 @@
             <use v-else xlink:href="#icon-musicforbidfill"></use>
         </svg>
 
-        <audio ref="audio" src="../assets/music/岑宁儿 - 追光者.mp3">
+        <audio ref="audio" :src="`${baseUrl}/music/岑宁儿 - 追光者.mp3`">
             Your browser does not support the <code>audio</code> element.
         </audio>
 
@@ -33,7 +33,7 @@ export default {
             playMusic: false
         }
     },
-    props: ['type'],
+    props: ['baseUrl', 'type'],
     methods: {
         selectType(e) {
             const { type } = e.target.dataset
@@ -81,7 +81,6 @@ header {
 .nav > li {
     color: #ccc;
     padding: 10px 15px;
-    margin: 0 10px;
 }
 .nav > li.active {
     color: #fff;

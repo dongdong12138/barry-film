@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :type="type" />
-    <Main :type="type" />
+    <Header :baseUrl="baseUrl" :type="type" />
+    <Main :baseUrl="baseUrl" :type="type" />
     <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
   name: 'App',
   data() {
     return {
+      baseUrl: 'http://morefun-active.oss-cn-beijing.aliyuncs.com/bao_daily/barry-film',
       src: '',
       type: 'photo',
       isPopup: false
@@ -56,7 +57,7 @@ img, video { max-width: 100%; }
 #app {
   width: 100vw;
   height: 100vh;
-  background: url("./assets/photos/93.jpg") no-repeat center top;
+  background: url("//morefun-active.oss-cn-beijing.aliyuncs.com/bao_daily/barry-film/photos/93.jpg") no-repeat center top;
   background-size: 100% 100%;
   overflow: hidden;
 }
