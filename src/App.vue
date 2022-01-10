@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Header :baseUrl="baseUrl" :type="type" />
-    <Main :baseUrl="baseUrl" :type="type" />
+    <Main :imgList="imgList" :videoList="videoList" :type="type" />
     <Popup v-show="isPopup" :isPopup="isPopup" :src="src" />
+    <Loading v-if="isLoading" :imgList="imgList" />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
 import Popup from './components/Popup.vue'
+import Loading from './components/Loading.vue'
 
 export default {
   name: 'App',
@@ -18,8 +20,21 @@ export default {
       baseUrl: 'http://morefun-active.oss-cn-beijing.aliyuncs.com/bao_daily/barry-film',
       src: '',
       type: 'photo',
-      isPopup: false
+      imgList: [],
+      videoList: [],
+      isPopup: false,
+      isLoading: true,
     }
+  },
+  created() {
+      for (let i = 1; i <= 100; i ++) {
+        // this.imgList.push({ img: require(`${this.baseUrl}/photos/${i}.jpg`) })
+        this.imgList.push({ img: `${this.baseUrl}/photos/${i}.jpg` })
+      }
+      for (let i = 1; i <= 10; i ++) {
+        // this.videoList.push({ video: require(`${this.baseUrl}/videos/${i}.mp4`) })
+        this.videoList.push({ video: `${this.baseUrl}/videos/${i}.mp4` })
+      }
   },
   mounted() {
   },
@@ -36,9 +51,15 @@ export default {
     setPopup(state, src='') {
       this.src = src
       this.isPopup = state
+    },
+    /**
+     * 设置Loading显示隐藏
+     */
+    setLoading(state) {
+      this.isLoading = state
     }
   },
-  components: { Header, Main, Popup }
+  components: { Header, Main, Popup, Loading }
 }
 </script>
 

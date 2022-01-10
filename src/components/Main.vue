@@ -26,26 +26,14 @@ export default {
     name: 'Main',
     data() {
         return {
-            imgList: [],
-            videoList: [],
             lastY: 0,
             currentVideo: 0
         }
     },
-    props: ['baseUrl', 'type'],
+    props: ['type', 'imgList', 'videoList'],
     computed: {
         styleObj() {
             return { transform: `translateY(calc(-${this.currentVideo} * 100% / 10))` }
-        }
-    },
-    created() {
-        for (let i = 1; i <= 100; i ++) {
-            // this.imgList.push({ img: require(`${this.baseUrl}/photos/${i}.jpg`) })
-            this.imgList.push({ img: `${this.baseUrl}/photos/${i}.jpg` })
-        }
-        for (let i = 1; i <= 10; i ++) {
-            // this.videoList.push({ video: require(`${this.baseUrl}/videos/${i}.mp4`) })
-            this.videoList.push({ video: `${this.baseUrl}/videos/${i}.mp4` })
         }
     },
     methods: {
